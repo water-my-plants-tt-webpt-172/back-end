@@ -15,4 +15,21 @@ router.get("/", (req, res) => {
 //post
 //put (id)
 //delete (id)
+
+router.get('/:id', (req, res) => {
+
+})
+
+router.post('/', (req, res) => {
+
+})
+
+router.put('/:id', (req, res) => {
+
+})
+
+router.delete('/:id', (req, res) => {
+
+})
+
 module.exports = router;
