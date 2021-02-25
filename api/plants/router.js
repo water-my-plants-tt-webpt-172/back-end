@@ -31,7 +31,20 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-
+  const plantData = req.body;
+  db('plant').insert(plantData)
+      .then(ids => {
+          db('plant').where({ id: ids[0] })
+              .then(newPlantEntry => {
+                  res.status(201).json(newPlantEntry);
+              })
+      })
+      .catch(err => {
+          console.log('POST error', err);
+          res.status(500).json({
+              message: 'Failed to store plant data.'
+          })
+      })
 })
 
 router.put('/:id', (req, res) => {
