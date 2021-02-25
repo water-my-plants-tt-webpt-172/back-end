@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const data = await db.getById(id)
+    const data = await db.findById(id)
     res.status(200).json(data);
   } catch(err) {
       next(err);
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const body = req.body;
   try {
-      const data = await db.insert(body);
+      const data = await db.add(body);
       res.json(data);
   } catch(err) {
       next(err);
@@ -47,8 +47,14 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try{
+      const data = await db.remove(id);
+      res.json(data);
+  } catch(err) {
+      next(err);
+  }
 })
 
 module.exports = router;
