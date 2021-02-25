@@ -17,7 +17,17 @@ router.get("/", (req, res) => {
 //delete (id)
 
 router.get('/:id', (req, res) => {
+  const { id } = req.params;
 
+  db('plants').where({ id }).first()
+      .then(plant => {
+          res.json(plant);
+      })
+      .catch(err => {
+          res.status(500).json({
+              message: 'Failed to retrieve plant by id.'
+          })
+      })
 })
 
 router.post('/', (req, res) => {
