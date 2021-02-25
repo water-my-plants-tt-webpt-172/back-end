@@ -10,12 +10,6 @@ router.get("/", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-//needed:
-//get by id 
-//post
-//put (id)
-//delete (id)
-
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
