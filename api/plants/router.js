@@ -36,24 +36,15 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-
-  Schemes.findById(id)
-    .then(scheme => {
-      if (scheme) {
-        return Schemes.update(changes, id);
-      } else {
-        res.status(404).json({ message: 'Could not find scheme with given id' });
-      }
-    })
-    .then(updatedScheme => {
-      res.json(updatedScheme);
-    })
-    .catch(err => {
-      res.status(500).json({ message: 'Failed to update scheme' });
-    });
+  try{
+      const data = await db.update(id, changes);
+      res.json(data);
+  } catch(err) {
+      next(err);
+  }
 })
 
 router.delete('/:id', (req, res) => {
