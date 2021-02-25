@@ -10,4 +10,9 @@ router.get("/", (req, res) => {
     .catch((err) => res.send(err));
 });
 
+//needed:
+//get by id 
+//post
+//put (id)
+//delete (id)
 module.exports = router;
