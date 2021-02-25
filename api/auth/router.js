@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const Users = require("../users/model.js");
 
+/*
 router.post("/register", (req, res) => {
     console.log("credentials router.js line 6", req.body)
     const credentials = req.body;
@@ -43,4 +44,5 @@ function isValid(user) {
     return Boolean(user.username && user.password && typeof user.password === "string");
 }
 
+*/
 module.exports = router;
