@@ -5,6 +5,8 @@ module.exports = {
   find,
   findById,
   findBy,
+  update, 
+  remove
 };
 
 function find() {
@@ -24,4 +26,14 @@ function findById(id) {
 async function add(plant) {
   const [id] = await db("plants").insert(plant);
   return findById(id);
+}
+
+async function update(id, changes) {
+  const count = await db('plants').where({id}).update(changes);
+  return count;
+}
+
+async function remove(id) {
+  const count = await db('plants').where({id}).del();
+  return count;
 }
