@@ -26,21 +26,14 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.post('/', (req, res) => {
-  const plantData = req.body;
-  db('plant').insert(plantData)
-      .then(ids => {
-          db('plant').where({ id: ids[0] })
-              .then(newPlantEntry => {
-                  res.status(201).json(newPlantEntry);
-              })
-      })
-      .catch(err => {
-          console.log('POST error', err);
-          res.status(500).json({
-              message: 'Failed to store plant data.'
-          })
-      })
+router.post('/', async (req, res) => {
+  const body = req.body;
+  try {
+      const data = await db.insert(body);
+      res.json(data);
+  } catch(err) {
+      next(err);
+  }
 })
 
 router.put('/:id', (req, res) => {
