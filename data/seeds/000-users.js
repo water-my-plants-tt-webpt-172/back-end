@@ -10,7 +10,7 @@ exports.seed = function (knex) {
       const user = {
         username: "tester",
         password: "tester",
-        phone: "666-999-9999",
+        phone: "6669999999",
       };
       const rounds = parseInt(process.env.BCRYP_ROUNDS);
       const hash = bcrypt.hashSync(user.password, rounds);
