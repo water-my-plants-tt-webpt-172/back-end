@@ -5,12 +5,12 @@ const cors = require("cors");
 const plantsRouter = require("./plants/router");
 const usersRouter = require("./users/router");
 const authRouter = require("./auth/router");
-const restrictedMiddleware = require('./auth/restricted-middleware.js');
+const restrictedMiddleware = require("./auth/restricted-middleware");
 
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
-server.use("/plants", plantsRouter);
+// server.use("/plants", plantsRouter);
 server.use("/users", restrictedMiddleware, usersRouter);
 server.use("/auth", authRouter);
 
