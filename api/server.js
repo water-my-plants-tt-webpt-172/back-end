@@ -10,9 +10,9 @@ const restrictedMiddleware = require("./auth/restricted-middleware");
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
-server.use("/plants", restrictedMiddleware, plantsRouter);
-server.use("/users", restrictedMiddleware, usersRouter);
 server.use("/auth", authRouter);
+server.use("/users", restrictedMiddleware, usersRouter);
+server.use("/plants", restrictedMiddleware, plantsRouter);
 
 server.get("/", (req, res) => {
   res.status(200).json({ message: "server up" });
