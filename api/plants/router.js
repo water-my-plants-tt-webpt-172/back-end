@@ -30,16 +30,23 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', restricted, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-  try{
+  try {
+      const data = await db.findById(id)
+      if(data) {
       const data = await db.update(id, changes);
-      res.json(data);
+        res.status(200).json(data);
+      } else {
+          res.status(404).json({
+              message: "Could not find plant with given id."
+          })
+      }
   } catch(err) {
       next(err);
   }
-})
+});
 
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
