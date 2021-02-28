@@ -8,8 +8,9 @@ exports.up = function(knex) {
         tbl.string('species', 128)
             .notNullable();
         tbl.integer('h2oFrequency')
-            .onDelete('CASCADE')
-            .onUpdate('CASCADE');
+            .notNullable();
+        tbl.string('image_url');
+        tbl.date('isWatered');
     })
 };
 
