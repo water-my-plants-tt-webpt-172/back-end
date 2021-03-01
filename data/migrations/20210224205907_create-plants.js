@@ -1,3 +1,4 @@
+
 exports.up = function (knex) {
   return knex.schema.createTable("plants", (tbl) => {
     tbl.increments();
@@ -10,8 +11,11 @@ exports.up = function (knex) {
       .references("users.id")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
+              tbl.string('image_url');
+          tbl.date('isWatered');
   });
 };
+
 
 exports.down = function (knex) {
   return knex.schema.dropTableIfExists("plants");
