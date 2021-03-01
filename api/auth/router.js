@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
-    if (!isValid(req.body)) {
+    if (!username || !password) {
       res.status(400).json({
         message: "username or password missing, or password not alphanumeric",
       });
