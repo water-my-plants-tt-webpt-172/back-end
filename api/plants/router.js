@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/:id', restricted, async (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
   try {
