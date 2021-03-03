@@ -12,8 +12,9 @@ function find() {
   return db("users").select("id", "username", "password").orderBy("id");
 }
 
-function findBy(filter) {
-  return db("users").where(filter).orderBy("id");
+async function findBy(filter) {
+  const user = await db("users").where(filter).orderBy("id").first();
+  return user;
 }
 
 function findById(id) {
@@ -25,6 +26,11 @@ async function add(user) {
   return findById(id);
 }
 
-function update(id, changes) {
-  return db("users").where({ id }).update(changes, "*");
+async function update(id, changes) {
+  const updatedUser = await db("users")
+    .where({ id })
+    .update(changes, ["id", "username", "password"]);
+  if (updatedUser) {
+    return findById(id);
+  }
 }
