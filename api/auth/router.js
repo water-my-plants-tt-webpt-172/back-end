@@ -16,6 +16,7 @@ router.post("/register", async (req, res) => {
       credentials.password = hash;
       const user = await db.add(credentials);
       const token = generateToken(user);
+
       res.status(201).json({ data: user, token });
     } else {
       res.status(400).json({
@@ -35,7 +36,8 @@ router.post("/login", async (req, res) => {
         message: "username or password missing, or password not alphanumeric",
       });
     } else {
-      const user = await db.findBy({ username }).first();
+      const user = await db.findBy({ username });
+
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
         res.status(200).json({ data: user, token });
