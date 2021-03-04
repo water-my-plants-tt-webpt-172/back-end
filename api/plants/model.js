@@ -5,18 +5,19 @@ module.exports = {
   find,
   findById,
   findBy,
-  update, 
-  remove
+  update,
+  remove,
 };
 
 function find() {
   return db("plants")
-    .select("id", "nickname", "species", "h2oFrequency")
+    .select("id", "nickname", "species", "h2oFrequency", "user_id")
     .orderBy("id");
 }
 
 function findBy(filter) {
-  return db("plants").where(filter).orderBy("id");
+  console.log(filter);
+  return db("plants").where({ user_id: filter }).orderBy("id");
 }
 
 function findById(id) {
@@ -29,11 +30,11 @@ async function add(plant) {
 }
 
 async function update(id, changes) {
-  const count = await db('plants').where({id}).update(changes);
+  const count = await db("plants").where({ id }).update(changes);
   return count;
 }
 
 async function remove(id) {
-  const count = await db('plants').where({id}).del();
+  const count = await db("plants").where({ id }).del();
   return count;
 }
