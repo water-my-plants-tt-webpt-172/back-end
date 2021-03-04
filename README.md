@@ -21,12 +21,13 @@ each one of them.
 
 ## PLANTS
 
-| METHOD | URI                                              | SEND                                                        | RECIVED                                                                   |
-| ------ | ------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------- |
-| GET    | https://dont-let-it-die.herokuapp.com/plants/    | N/A                                                         |                                                                           |
-| GET    | https://dont-let-it-die.herokuapp.com/plants/:id | N/A                                                         |                                                                           |
-| POST   | https://dont-let-it-die.herokuapp.com/plants/    | `{nickname: STRING, species: STRING, h2oFrequency: STRING}` | `{ id: INTEGER, nickname: STRING, species: STRING, h2oFrequency: STRING}` |
-| PUT    | https://dont-let-it-die.herokuapp.com/plants/:id | `{nickname: STRING, species: STRING, h2oFrequency: STRING}` | `{ id: INTEGER, nickname: STRING, species: STRING, h2oFrequency: STRING}` |
-| DELETE | https://dont-let-it-die.herokuapp.com/plants/:id | N/A                                                         | N/A                                                                       |
+| METHOD | URI                                                        | SEND                                                        | RECIVED                                                                                     |
+| ------ | ---------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| GET    | https://dont-let-it-die.herokuapp.com/plants/              | N/A                                                         | [ Array of Plants ]                                                                         |
+| GET    | https://dont-let-it-die.herokuapp.com/plants/:id           | N/A                                                         | `{ id: INTEGER, nickname: STRING, species: STRING, h2oFrequency: STRING, user_id:INTERGER}` |
+| GET    | https://dont-let-it-die.herokuapp.com/plants/user/:user_id | N/A                                                         | [ Array of Plants ]                                                                         |
+| POST   | https://dont-let-it-die.herokuapp.com/plants/              | `{nickname: STRING, species: STRING, h2oFrequency: STRING}` | `{ id: INTEGER, nickname: STRING, species: STRING, h2oFrequency: STRING, user_id:INTERGER}` |
+| PUT    | https://dont-let-it-die.herokuapp.com/plants/:id           | `{nickname: STRING, species: STRING, h2oFrequency: STRING}` | `{ id: INTEGER, nickname: STRING, species: STRING, h2oFrequency: STRING, user_id:INTERGER}` |
+| DELETE | https://dont-let-it-die.herokuapp.com/plants/:id           | N/A                                                         | N/A                                                                                         |
 
 #### _Have fun, and remember....DON'T LET IT DIE!_
