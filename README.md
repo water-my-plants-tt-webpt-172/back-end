@@ -17,7 +17,7 @@ each one of them.
 
 | METHOD | URI                                                | SEND              | RECIVED                                                |
 | ------ | -------------------------------------------------- | ----------------- | ------------------------------------------------------ |
-| PATCH  | https://dont-let-it-die.herokuapp.com/users/update | `{[KEY]: STRING}` | `{username: STRING, password: STRING, phone: STRING }` |
+| PATCH  | https://dont-let-it-die.herokuapp.com/users/:id | `{[KEY]: STRING}` | `{username: STRING, password: STRING, phone: STRING }` |
 
 ## PLANTS
 
