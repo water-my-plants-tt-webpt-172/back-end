@@ -8,8 +8,8 @@ const authRouter = require("./auth/router");
 const restrictedMiddleware = require("./auth/restricted-middleware");
 
 server.use(express.json());
-server.use(helmet());
 server.use(cors());
+server.use(helmet());
 server.use("/auth", authRouter);
 server.use("/users", restrictedMiddleware, usersRouter);
 server.use("/plants", restrictedMiddleware, plantsRouter);
