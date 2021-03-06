@@ -20,6 +20,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
 router.get("/user/:user_id", async (req, res) => {
   const user_id = req.params.user_id;
   try {
@@ -31,14 +32,18 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const body = req.body;
+  let body = req.body;
   try {
+    if(req.files.foo.data){
+      body = {...body, img: req.files.foo.data}
+    }
     const data = await db.add(body);
     res.json(data);
   } catch (err) {
     next(err);
   }
 });
+
 
 router.put("/:id", async (req, res) => {
   const { id } = req.params;

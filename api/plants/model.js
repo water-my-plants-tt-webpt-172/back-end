@@ -11,7 +11,7 @@ module.exports = {
 
 function find() {
   return db("plants")
-    .select("id", "nickname", "species", "h2oFrequency", "user_id")
+    .select("id", "nickname", "species", "h2oFrequency", "user_id", "img")
     .orderBy("id");
 }
 

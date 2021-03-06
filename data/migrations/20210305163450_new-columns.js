@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
   return knex.schema.table('plants', (tbl)=>{
     tbl.text('image_url');
@@ -9,3 +8,4 @@ exports.up = function(knex) {
 exports.down = function(knex) {
 
 };
+
