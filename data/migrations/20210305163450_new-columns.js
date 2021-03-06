@@ -1,11 +1,10 @@
-
 exports.up = function(knex) {
-  return knex.table('plants', (table)=>{
-    tbl.text('image_url',longtext);
+  return knex.schema.table('plants', (tbl)=>{
+    tbl.text('image_url');
     tbl.date('isWatered');
   })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropColumn("image_url",'isWatered');
+
 };
