@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.table('plants', (table)=>{
+  return knex.table('plants', (tbl)=>{
     tbl.text('image_url',longtext);
     tbl.date('isWatered');
   })
