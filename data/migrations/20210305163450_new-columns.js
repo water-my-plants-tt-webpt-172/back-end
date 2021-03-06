@@ -7,5 +7,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropColumn("image_url",'isWatered');
+    return knex.dropColumn("image_url",'isWatered');
 };
