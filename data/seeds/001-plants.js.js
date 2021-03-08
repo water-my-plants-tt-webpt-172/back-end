@@ -19,13 +19,6 @@ exports.seed = function (knex) {
           h2oFrequency: 1,
           user_id: 1,
         },
-        {
-          id: 3,
-          nickname: "Chocolate Soldier",
-          species: "Kalanchoe tomentosa",
-          h2oFrequency: 3,
-          user_id: 1,
-        },
       ]);
     });
 };
